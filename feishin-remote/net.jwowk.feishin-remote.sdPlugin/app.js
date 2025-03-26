@@ -9,13 +9,13 @@ let currentVolume = 50; // Default volume, you can adjust this as needed
 if (typeof Action === 'undefined') {
     console.error('Action class is not defined. Please ensure it is imported correctly.');
 } else {
-    var playPauseAction = new Action('de.felitendo.feishin.playpause');
-    var nextAction = new Action('de.felitendo.feishin.next');
-    var previousAction = new Action('de.felitendo.feishin.previous');
-    var shuffleAction = new Action('de.felitendo.feishin.shuffle');
-    var repeatAction = new Action('de.felitendo.feishin.repeat');
-    var volumeUpAction = new Action('de.felitendo.feishin.volumeup');
-    var volumeDownAction = new Action('de.felitendo.feishin.volumedown');
+    var playPauseAction = new Action('net.jwowk.feishin-remote.sdPlugin.playpause');
+    var nextAction = new Action('net.jwowk.feishin-remote.sdPlugin.next');
+    var previousAction = new Action('net.jwowk.feishin-remote.sdPlugin.previous');
+    var shuffleAction = new Action('net.jwowk.feishin-remote.sdPlugin.shuffle');
+    var repeatAction = new Action('net.jwowk.feishin-remote.sdPlugin.repeat');
+    var volumeUpAction = new Action('net.jwowk.feishin-remote.sdPlugin.volumeup');
+    var volumeDownAction = new Action('net.jwowk.feishin-remote.sdPlugin.volumedown');
 }
 
 /**
@@ -115,13 +115,13 @@ function updateShuffleButton(shuffleState) {
 
 function updateRepeatButton(repeatState) {
     switch(repeatState) {
-        case 'NONE':
+        case 'none':
             repeatAction.setImage('images/repeat_off.png');
             break;
-        case 'ALL':
+        case 'all':
             repeatAction.setImage('images/repeat_all.png');
             break;
-        case 'ONE':
+        case 'one':
             repeatAction.setImage('images/repeat_one.png');
             break;
     }
@@ -166,6 +166,7 @@ volumeUpAction.onKeyUp(({ action, context, device, event, payload }) => {
     if (feishinWs && feishinWs.readyState === WebSocket.OPEN) {
         currentVolume = Math.min(100, currentVolume + 10); // Increase volume by 10, max 100
         feishinWs.send(JSON.stringify({ event: 'volume', volume: currentVolume }));
+        console.log('Increased volume to:', currentVolume);
     }
 });
 
@@ -173,5 +174,6 @@ volumeDownAction.onKeyUp(({ action, context, device, event, payload }) => {
     if (feishinWs && feishinWs.readyState === WebSocket.OPEN) {
         currentVolume = Math.max(0, currentVolume - 10); // Decrease volume by 10, min 0
         feishinWs.send(JSON.stringify({ event: 'volume', volume: currentVolume }));
+        console.log('Decreased volume to:', currentVolume);
     }
 });

@@ -1,22 +1,15 @@
 /// <reference path="libs/js/action.js" />
 /// <reference path="libs/js/stream-deck.js" />
 
-const FEISHIN_WS_URL = 'ws://NUC-01.local:4333'; // Default URL, make this configurable
+const FEISHIN_WS_URL = 'ws://localhost:4333'; // Default URL, make this configurable
 let feishinWs = null;
 let currentPlaybackStatus = 'PAUSED'; // Default to paused
-let currentVolume = 50; // Default volume, you can adjust this as needed
 
-if (typeof Action === 'undefined') {
-    console.error('Action class is not defined. Please ensure it is imported correctly.');
-} else {
-    var playPauseAction = new Action('de.felitendo.feishin.playpause');
-    var nextAction = new Action('de.felitendo.feishin.next');
-    var previousAction = new Action('de.felitendo.feishin.previous');
-    var shuffleAction = new Action('de.felitendo.feishin.shuffle');
-    var repeatAction = new Action('de.felitendo.feishin.repeat');
-    var volumeUpAction = new Action('de.felitendo.feishin.volumeup');
-    var volumeDownAction = new Action('de.felitendo.feishin.volumedown');
-}
+const playPauseAction = new Action('de.felitendo.feishin.playpause');
+const nextAction = new Action('de.felitendo.feishin.next');
+const previousAction = new Action('de.felitendo.feishin.previous');
+const shuffleAction = new Action('de.felitendo.feishin.shuffle');
+const repeatAction = new Action('de.felitendo.feishin.repeat');
 
 /**
  * The first event fired when Stream Deck starts
@@ -66,16 +59,13 @@ function handleFeishinMessage(data) {
             updateAllButtons(data.data);
             break;
         case 'playback':
-            updatePlayPauseButton(data.data.status);
+            updatePlayPauseButton(data.data);
             break;
         case 'shuffle':
-            updateShuffleButton(data.data.shuffle);
+            updateShuffleButton(data.data);
             break;
         case 'repeat':
-            updateRepeatButton(data.data.repeat);
-            break;
-        case 'volume':
-            updateVolume(data.data.volume);
+            updateRepeatButton(data.data);
             break;
     }
 }
@@ -84,14 +74,7 @@ function updateAllButtons(state) {
     updatePlayPauseButton(state.status);
     updateShuffleButton(state.shuffle);
     updateRepeatButton(state.repeat);
-    updateVolume(state.volume);
 }
-
-function updateVolume(volume) {
-    currentVolume = volume;
-    console.log('Updated volume to:', currentVolume);
-} 
-
 
 function updatePlayPauseButton(status) {
     console.log('Updating play/pause button with status:', status);
@@ -162,16 +145,4 @@ repeatAction.onKeyUp(({ action, context, device, event, payload }) => {
     }
 });
 
-volumeUpAction.onKeyUp(({ action, context, device, event, payload }) => {
-    if (feishinWs && feishinWs.readyState === WebSocket.OPEN) {
-        currentVolume = Math.min(100, currentVolume + 10); // Increase volume by 10, max 100
-        feishinWs.send(JSON.stringify({ event: 'volume', volume: currentVolume }));
-    }
-});
-
-volumeDownAction.onKeyUp(({ action, context, device, event, payload }) => {
-    if (feishinWs && feishinWs.readyState === WebSocket.OPEN) {
-        currentVolume = Math.max(0, currentVolume - 10); // Decrease volume by 10, min 0
-        feishinWs.send(JSON.stringify({ event: 'volume', volume: currentVolume }));
-    }
-});
+// You can add more actions here as needed, such as volume control, etc.

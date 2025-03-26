@@ -1,0 +1,75 @@
+{"data":
+    {
+    "status": "paused",
+    "repeat": "none",
+    "shuffle": false,
+    "volume": 90,
+    "song": {
+        "album": "The Marshall Mathers LP",
+        "albumId": "f631cc04b06dc7ee0be0cb3cb0137d20",
+        "albumArtists": [
+        {
+            "id": "26b637ed41273425be243e8d42e5b461",
+            "imageUrl": null,
+            "name": "Eminem"
+        }
+        ],
+        "artists": [
+        {
+            "id": "26b637ed41273425be243e8d42e5b461",
+            "imageUrl": null,
+            "name": "Eminem"
+        }
+        ],
+        "participants": null,
+        "artistName": "Eminem",
+        "bitRate": 2963,
+        "bpm": null,
+        "channels": 2,
+        "comment": "2000 Interscope Records 069490629-1 Original US Pressing\nRipped by PBTHAL\nAT150ANV",
+        "compilation": false,
+        "container": "flac",
+        "createdAt": "2025-01-10",
+        "discNumber": 1,
+        "discSubtitle": null,
+        "duration": 314590,
+        "gain": {
+        "album": -1.12,
+        "track": 0.09
+        },
+        "genres": [
+        {
+            "id": "4827acfd-1f76-4a12-838e-461e32b8d747",
+            "imageUrl": null,
+            "itemType": "genre",
+            "name": "Hip Hop"
+        }
+        ],
+        "id": "088e0ffc2e5e93bfb836f89a8becea8c",
+        "imagePlaceholderUrl": null,
+        "imageUrl": "https://navidrome.jwowk.net/rest/getCoverArt.view?id=088e0ffc2e5e93bfb836f89a8becea8c&u=jwowk&s=612f3b&t=d13efacbd5ceadc92f98265ea8efd53f&v=1.13.0&c=Feishin&size=100",
+        "itemType": "song",
+        "lastPlayedAt": null,
+        "lyrics": "[]",
+        "name": "Criminal",
+        "path": "/music/Eminem/The Marshall Mathers LP/18 Eminem - Criminal.flac",
+        "peak": {
+        "album": 0.922606,
+        "track": 0.708685
+        },
+        "playCount": 0,
+        "releaseDate": "2000-01-01T00:00:00.000Z",
+        "releaseYear": "2000",
+        "serverId": "VguGo9M4R9CV71Ppz1xeD",
+        "serverType": "navidrome",
+        "size": 116700046,
+        "streamUrl": "https://navidrome.jwowk.net/rest/stream.view?id=088e0ffc2e5e93bfb836f89a8becea8c&v=1.13.0&c=Feishin&u=jwowk&s=612f3b&t=d13efacbd5ceadc92f98265ea8efd53f",
+        "trackNumber": 18,
+        "uniqueId": "jNTkGoqcUraNZSCruzL3D",
+        "updatedAt": "2025-01-10T15:51:12.9703099Z",
+        "userFavorite": false,
+        "userRating": null
+    },
+    "position": 0
+    },
+}

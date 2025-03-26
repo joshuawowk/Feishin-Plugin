@@ -1,28 +1,31 @@
 {
-	"UUID": "de.felitendo.feishin",
+	"Name": "feishin_remote",
+	"Version": "0.1.0.0",
+	"Author": "jwowk",
+		"Category": "feishin_remote",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "net.jwowk.feishin-remote",
+	"Icon": "imgs/plugin/marketplace",
 	"SDKVersion": 2,
-	"Author": "Felitendo",
-	"CodePath": "app.html",
-	"Description": "Control Feishin, a modern self-hosted music player",
-	"Name": "Feishin",
-	"Icon": "actions/images/pluginIcon",
-	"URL": "https://github.com/Felodeck/Feishin-Plugin",
-	"Version": "1.0.1.2",
 	"Software": {
 		"MinimumVersion": "6.4"
 	},
 	"OS": [
 		{
 			"Platform": "mac",
-			"MinimumVersion": "10.11"
+			"MinimumVersion": "12"
 		},
 		{
 			"Platform": "windows",
 			"MinimumVersion": "10"
 		}
 	],
-	"Category": "Feishin",
-	"CategoryIcon": "actions/images/categoryIcon",
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "enabled"
+	},
+	"UUID": "net.jwowk.feishin-remote",
 	"Actions": [
 		{
 			"Icon": "actions/images/ppactionIcon",
@@ -33,7 +36,7 @@
 				}
 			],
 			"Tooltip": "Play or pause the current track",
-			"UUID": "de.felitendo.feishin.playpause",
+			"UUID": "net.jwowk.feishin-remote.sdPlugin.playpause",
 			"PropertyInspectorPath": "inspector.html"
 		},
 		{
@@ -45,7 +48,7 @@
 				}
 			],
 			"Tooltip": "Play the next track",
-			"UUID": "de.felitendo.feishin.next",
+			"UUID": "net.jwowk.feishin-remote.sdPlugin.next",
 			"PropertyInspectorPath": "inspector.html"
 		},
 		{
@@ -57,7 +60,7 @@
 				}
 			],
 			"Tooltip": "Play the previous track",
-			"UUID": "de.felitendo.feishin.previous",
+			"UUID": "net.jwowk.feishin-remote.sdPlugin.previous",
 			"PropertyInspectorPath": "inspector.html"
 		},
 		{
@@ -69,7 +72,7 @@
 				}
 			],
 			"Tooltip": "Toggle shuffle mode",
-			"UUID": "de.felitendo.feishin.shuffle",
+			"UUID": "net.jwowk.feishin-remote.sdPlugin.shuffle",
 			"PropertyInspectorPath": "inspector.html"
 		},
 		{
@@ -81,7 +84,7 @@
 				}
 			],
 			"Tooltip": "Toggle repeat mode",
-			"UUID": "de.felitendo.feishin.repeat",
+			"UUID": "net.jwowk.feishin-remote.sdPlugin.repeat",
 			"PropertyInspectorPath": "inspector.html"
 		},
 		{
@@ -93,7 +96,7 @@
 				}
 			],
 			"Tooltip": "Volume down 10%",
-			"UUID": "de.felitendo.feishin.volumedown",
+			"UUID": "net.jwowk.feishin-remote.sdPlugin.volumedown",
 			"PropertyInspectorPath": "inspector.html"
 		},
 		{
@@ -105,7 +108,7 @@
 				}
 			],
 			"Tooltip": "Volume up 10%",
-			"UUID": "de.felitendo.feishin.volumeup",
+			"UUID": "net.jwowk.feishin-remote.sdPlugin.volumeup",
 			"PropertyInspectorPath": "inspector.html"
 		}
 	]
